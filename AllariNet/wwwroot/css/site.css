@@ -1,47 +1,37 @@
+/* Define CSS variables for padding and colors */
+:root {
+    --padding: 10px;
+    --primary-color: #333;
+    --secondary-color: #ddd;
+}
+
+/* Reset default margin and box-sizing for HTML element */
 html {
     margin: 0;
     box-sizing: border-box;
 }
 
+/* Container for the entire page */
 .page_container {
     position: relative;
-    padding: 0 10px;
+    padding: var(--padding);
 }
 
-header, footer {
-    height: 100px;
-    width: 100%;
-    margin: 10px 0;
-}
-
-.navbar {
-    margin-bottom: 10px;
-    background-color: #333;
-    color: white;
-    height: 10%;
-    width: 100%;
-    display: flex;
-    align-items: center;
-    flex-direction: row;
-    justify-content: center !important;
-}
-
-
-.header {
+/* Header */
+header.header {
+    margin-bottom: var(--padding);
     position: sticky;
     top: 0;
     z-index: 10;
     background: black;
     display: flex;
     align-items: center;
+    height: 100px;
 }
 
+/* Digital Clock inside header */
 .digital-clock {
     margin: auto;
-    top: 0;
-    left: 0;
-    bottom: 0;
-    right: 0;
     width: 200px;
     color: #ffffff;
     border-radius: 4px;
@@ -49,29 +39,47 @@ header, footer {
     font-size: 50px;
 }
 
+/* Navbar */
+.navbar {
+    margin-bottom: var(--padding);
+    background-color: var(--primary-color);
+    color: white;
+    height: 10%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center !important;
+}
+
+/* Main container */
 .main__container {
     min-height: 70vh;
     display: grid;
     grid-template-columns: 1fr 60% 1fr;
+    gap: var(--padding);
 }
 
+/* Main content section */
 main {
-    margin: 0 10px;
+    margin: 0 var(--padding);
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    border:1px solid black;
-    padding:20px;
-    border-radius:10px;
+    border: 1px solid black;
+    padding: 20px;
+    border-radius: 10px;
 }
 
+/* Person list container inside main content */
 .personListContainer {
     display: flex;
     justify-content: center;
     flex-direction: column;
+    gap: 10px;
 }
 
+/* Aside (left and right) */
 .aside {
     min-height: 70vh;
     display: flex;
@@ -88,35 +96,38 @@ main {
     background-color: blue;
 }
 
-.mouse__container--position {
-    padding: 10px 20px;
-    font-weight: bolder;
-    border: 1px solid white;
-}
-
+/* Footer */
 .footer__hg {
+    margin-top:var(--padding);
     width: 100%;
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: #ddd;
-    flex-direction:column;
+    background-color: var(--secondary-color);
+    flex-direction: column;
+    height: 100px;
 }
 
-@media (max-width:768px) {
+/* Media query for mobile */
+@media (max-width: 768px) {
     .aside {
-        padding: 20px;
+        padding: var(--padding);
     }
 
     .main__container {
         height: fit-content;
-        gap: 10px;
+        gap: var(--padding);
         display: flex;
         flex-direction: column;
     }
-
 }
 
+.carousel__image{
+    min-height:70vh;
+    object-fit:cover;
+    border-radius:10px;
+}
+/* Button with ripple effect */
 .btn-ripple {
     display: inline-block;
     position: relative;
@@ -148,8 +159,3 @@ main {
         transform: scale(0, 0);
     }
 
-.carousel__image {
-    min-height: 70vh;
-    object-fit: cover;
-    border-radius: 10px;
-}
